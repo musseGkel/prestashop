@@ -6,6 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class AddProductPage {
@@ -64,5 +65,11 @@ public class AddProductPage {
         WebElement retailPriceWithTaxElement = wait
                 .until(ExpectedConditions.visibilityOfElementLocated(retailPriceWithTax));
         return retailPriceWithTaxElement.getAttribute("value");
+    }
+
+    public void selectTaxRate(String taxRate) {
+        By taxRateDropdown = By.id("id_tax_rules_group");
+        wait.until(ExpectedConditions.visibilityOfElementLocated(taxRateDropdown));
+        new Select(driver.findElement(taxRateDropdown)).selectByVisibleText(taxRate);
     }
 }
