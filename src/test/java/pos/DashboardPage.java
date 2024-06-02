@@ -13,7 +13,6 @@ public class DashboardPage {
     private WebDriver driver;
     private By productsMenuItem = By.id("subtab-AdminProducts");
     private WebDriverWait wait;
-    private By userIcon = By.xpath("//header/nav[@id='header_infos']/div[1]/ul[3]/li[3]/a[1]/span[1]/img[1]");
 
     public DashboardPage(WebDriver driver) {
         this.driver = driver;
@@ -30,10 +29,6 @@ public class DashboardPage {
 
     public void clickProducts() {
         driver.findElement(productsMenuItem).click();
-    }
-
-    public void clickUserIcon() {
-        driver.findElement(userIcon).click();
     }
 
 }

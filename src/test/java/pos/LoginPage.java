@@ -9,7 +9,6 @@ public class LoginPage {
     private By passwordField = By.id("passwd");
     private By loginButton = By.cssSelector(
             "body.ps_back-office.bootstrap:nth-child(2) div.flip-container:nth-child(3) div.flipper div.front.panel form:nth-child(2) div.form-group.row-padding-top:nth-child(4) > button.btn.btn-primary.btn-lg.btn-block.ladda-button");
-    private By signOutLink = By.id("header_logout");
 
     public LoginPage(WebDriver driver) {
         this.driver = driver;
@@ -28,7 +27,4 @@ public class LoginPage {
         driver.findElement(loginButton).click();
     }
 
-    public void clickSignOut() {
-        driver.findElement(signOutLink).click();
-    }
 }
