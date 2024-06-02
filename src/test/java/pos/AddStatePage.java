@@ -11,6 +11,7 @@ import java.time.Duration;
 public class AddStatePage {
     private WebDriver driver;
     private WebDriverWait wait;
+    private By errorMessage = By.xpath("//body/div[@id='main']/div[@id='content']/div[4]/div[1]");
 
     public AddStatePage(WebDriver driver) {
         this.driver = driver;
@@ -48,5 +49,9 @@ public class AddStatePage {
         By successMessage = By.xpath("//body/div[@id='main']/div[@id='content']/div[4]/div[1]");
         return wait.until(ExpectedConditions.visibilityOfElementLocated(successMessage)).getText()
                 .contains("Successful creation");
+    }
+
+    public boolean isErrorDisplayed(String errorText) {
+        return driver.findElement(errorMessage).getText().contains(errorText);
     }
 }
