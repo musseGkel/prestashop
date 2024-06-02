@@ -12,6 +12,8 @@ public class AddProductPage {
     private By nameField = By.id("name_1");
     private By saveButton = By.xpath(
             "//body/div[@id='main']/div[@id='content']/div[6]/div[1]/div[1]/form[1]/div[1]/div[1]/div[16]/button[1]/i[1]");
+    private By errorMessage = By.xpath(
+            "//body/div[@id='main']/div[@id='content']/div[4]/div[1]");
 
     public AddProductPage(WebDriver driver) {
         this.driver = driver;
@@ -29,5 +31,9 @@ public class AddProductPage {
 
     public boolean isProductAdded() {
         return driver.findElement(By.xpath("//body/div[@id='main']/div[@id='content']/div[4]/div[1]")).isDisplayed();
+    }
+
+    public boolean isErrorDisplayed(String errorText) {
+        return driver.findElement(errorMessage).getText().contains(errorText);
     }
 }
