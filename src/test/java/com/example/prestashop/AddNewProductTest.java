@@ -9,6 +9,7 @@ import pos.AddProductPage;
 import pos.DashboardPage;
 import pos.LoginPage;
 import pos.ProductsPage;
+import pos.UserMenuPage;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -21,6 +22,7 @@ public class AddNewProductTest {
     private DashboardPage dashboardPage;
     private ProductsPage productsPage;
     private AddProductPage addProductPage;
+    private UserMenuPage userMenuPage;
 
     @BeforeEach
     public void setUp() {
@@ -30,6 +32,7 @@ public class AddNewProductTest {
         dashboardPage = new DashboardPage(driver);
         productsPage = new ProductsPage(driver);
         addProductPage = new AddProductPage(driver);
+        userMenuPage = new UserMenuPage(driver);
     }
 
     @Test
@@ -48,9 +51,8 @@ public class AddNewProductTest {
 
         assertTrue(addProductPage.isProductAdded());
 
-        dashboardPage.clickUserIcon();
-
-        loginPage.clickSignOut();
+        userMenuPage.clickUserIcon();
+        userMenuPage.clickSignOut();
 
     }
 

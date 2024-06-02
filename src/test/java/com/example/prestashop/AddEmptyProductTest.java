@@ -9,6 +9,7 @@ import pos.AddProductPage;
 import pos.DashboardPage;
 import pos.LoginPage;
 import pos.ProductsPage;
+import pos.UserMenuPage;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -21,6 +22,7 @@ public class AddEmptyProductTest {
     private DashboardPage dashboardPage;
     private ProductsPage productsPage;
     private AddProductPage addProductPage;
+    private UserMenuPage userMenuPage;
 
     @BeforeEach
     public void setUp() {
@@ -30,6 +32,7 @@ public class AddEmptyProductTest {
         dashboardPage = new DashboardPage(driver);
         productsPage = new ProductsPage(driver);
         addProductPage = new AddProductPage(driver);
+        userMenuPage = new UserMenuPage(driver);
     }
 
     @Test
@@ -49,9 +52,8 @@ public class AddEmptyProductTest {
                 addProductPage.isErrorDisplayed("This link_rewrite field is required at least in English (English)"));
         assertTrue(addProductPage.isErrorDisplayed("This name field is required at least in English (English)"));
 
-        dashboardPage.clickUserIcon();
-
-        loginPage.clickSignOut();
+        userMenuPage.clickUserIcon();
+        userMenuPage.clickSignOut();
 
     }
 
