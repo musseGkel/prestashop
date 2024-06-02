@@ -18,6 +18,10 @@ public class AddProductPage {
     private WebDriverWait wait;
     private By successMessage = By.cssSelector("div.alert.alert-success");
 
+    private By pricesButton = By.id("link-Prices");
+    private By preTaxRetailPrice = By.id("priceTE");
+    private By retailPriceWithTax = By.id("priceTI");
+
     public AddProductPage(WebDriver driver) {
         this.driver = driver;
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
@@ -44,5 +48,21 @@ public class AddProductPage {
     public boolean isProductUpdated() {
         return wait.until(ExpectedConditions.visibilityOfElementLocated(successMessage)).getText()
                 .contains("Successful update");
+    }
+
+    public void clickPrices() {
+        driver.findElement(pricesButton).click();
+    }
+
+    public void enterPreTaxRetailPrice(String price) {
+        WebElement nameElement = wait.until(ExpectedConditions.visibilityOfElementLocated(preTaxRetailPrice));
+        nameElement.clear();
+        nameElement.sendKeys(price.toString());
+    }
+
+    public String getRetailPriceWithTax() {
+        WebElement retailPriceWithTaxElement = wait
+                .until(ExpectedConditions.visibilityOfElementLocated(retailPriceWithTax));
+        return retailPriceWithTaxElement.getAttribute("value");
     }
 }
