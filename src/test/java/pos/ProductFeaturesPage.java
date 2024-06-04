@@ -11,6 +11,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class ProductFeaturesPage {
     private WebDriver driver;
     private By addNewFeatureButton = By.id("page-header-desc-feature-new_feature");
+    private By errorMessage = By.xpath("//body/div[@id='main']/div[@id='content']/div[4]/div[1]");
 
     private WebDriverWait wait;
 
@@ -39,4 +40,7 @@ public class ProductFeaturesPage {
         wait.until(ExpectedConditions.elementToBeClickable(saveButton)).click();
     }
 
+    public boolean isErrorDisplayed(String errorText) {
+        return driver.findElement(errorMessage).getText().contains(errorText);
+    }
 }
