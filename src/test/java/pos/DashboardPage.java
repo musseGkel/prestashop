@@ -12,6 +12,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class DashboardPage {
     private WebDriver driver;
     private By productsMenuItem = By.id("subtab-AdminProducts");
+    private By productFeatures = By.id("subtab-AdminFeatures");
+
     private WebDriverWait wait;
 
     public DashboardPage(WebDriver driver) {
@@ -29,6 +31,10 @@ public class DashboardPage {
 
     public void clickProducts() {
         driver.findElement(productsMenuItem).click();
+    }
+
+    public void clickProductFeatures() {
+        driver.findElement(productFeatures).click();
     }
 
 }
