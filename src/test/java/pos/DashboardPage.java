@@ -14,6 +14,8 @@ public class DashboardPage {
     private By productsMenuItem = By.id("subtab-AdminProducts");
     private By productFeatures = By.id("subtab-AdminFeatures");
 
+    private By productAttributes = By.id("subtab-AdminAttributesGroups");
+
     private WebDriverWait wait;
 
     public DashboardPage(WebDriver driver) {
@@ -35,6 +37,10 @@ public class DashboardPage {
 
     public void clickProductFeatures() {
         driver.findElement(productFeatures).click();
+    }
+
+    public void clickProducteAttributes() {
+        driver.findElement(productAttributes).click();
     }
 
 }
